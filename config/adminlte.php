@@ -232,20 +232,46 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'Dashboard',
             'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'icon'        => 'fas fa-fw fa-chart-line',
+            'label_color' => 'success',
+        ],
+        [
+            'text'    => 'Usuarios',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+                [
+                    'text' => 'Doctores',
+                    'icon'        => 'fas fa-fw fa-user-md',
+                    'icon_color' => 'white',
+                    'url'  => 'admin/doctor',
+                ],
+                [
+                    'text' => 'Empleados',
+                    'icon'        => 'far fa-fw fa-user',
+                    'icon_color' => 'green',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text'        => 'Pacientes',
+            'url'         => 'admin/pages',
+            'icon'        => 'fas fa-fw fa-user-tie',
+            'icon_color'  => 'red',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Citas',
+            'url'         => 'admin/pages',
+            'icon'        => 'far fa-fw fa-calendar-check',
+            'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
