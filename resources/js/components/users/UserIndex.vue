@@ -7,10 +7,10 @@
                                 <i class="far fa-envelope"></i>
                             </button>
                         </template>
-                        <button  title="Ver" :data-id="props.row.id"  type="button" class="btn btn-success" data-toggle="modal" @click="modalService(props.row)" data-target="#UserModalShow">
+                        <button  title="Ver" :data-id="props.row.id"  type="button" class="btn btn-success" @click="$modal.show('show-user',props.row.id)">
                             <i class="fas fa-eye"></i>
                         </button>
-                        <button  title="Editar" :data-id="props.row.id" type="button" class="btn btn-info" data-toggle="modal"  @click="modalService(props.row)" data-target="#UserModalEdit">
+                        <button  title="Editar" :data-id="props.row.id" type="button" class="btn btn-info"  @click="$modal.show('edit-user',props.row.id)">
                             <i class="fas fa-edit" aria-hidden="true"></i>
                         </button>
                     <button  title="Eliminar" :data-id="props.row.id"  class="btn btn-danger" @click="deleteRegister(props.row.id)">
@@ -18,10 +18,16 @@
                     </button>
             </div>
         </v-server-table>
+        <user-show></user-show>
+        <user-edit></user-edit>
     </div>
 </template>
 <script>
+
     import text from './../tables/text.js';
+    import UserShow from './UserShow.vue';
+    import UserEdit from './UserEdit';
+    import Swal from 'sweetalert2';
     export default {
         data(){
             return {
@@ -47,12 +53,16 @@
 
             }
         },
+        components:{
+            UserShow,
+            UserEdit
+        },
         methods: {
             deleteRegister(id) {
-                this.swal.fire({
+                Swal.fire({
                     title: '¿Estas Seguro?',
                     text: "¡Si eliminas este registro ya no se podra recuperar!",
-                    type: 'warning',
+                    icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
@@ -66,7 +76,7 @@
                         }).catch(function (error) {
                             console.log(error);
                         });
-                        this.swal.fire(
+                        Swal.fire(
                             'Eliminado!',
                             'El registro se elimino correctamente.',
                             'success'
