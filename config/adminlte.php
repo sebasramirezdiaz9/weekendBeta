@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>University</b>-Hospital',
+    'logo' => '<b>Clinica</b>Bienestar',
     'logo_img' => 'vendor/adminlte/dist/img/icono.png',
     'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-secondary',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
