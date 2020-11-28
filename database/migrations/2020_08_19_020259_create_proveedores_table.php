@@ -20,7 +20,7 @@ class CreateProveedoresTable extends Migration
             $table->string('contacto_directo',255);
             $table->bigInteger('direccion_id')->unsigned();
             $table->timestamps();
-
+            $table->softdeletes();
             $table->foreign('direccion_id')->references('id')->on('direcciones')->onDelete('cascade');
         });
     }

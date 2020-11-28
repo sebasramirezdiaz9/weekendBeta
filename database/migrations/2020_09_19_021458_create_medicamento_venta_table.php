@@ -21,6 +21,7 @@ class CreateMedicamentoVentaTable extends Migration
 
             $table->foreign('medicamento_id')->references('id')->on('medicamento')->onDelete('cascade');
             $table->foreign('venta_id')->references('id')->on('ventas')->onDelete('cascade');
+            $table->softdeletes();
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ class CreateDireccionesTable extends Migration
             $table->integer('num_ext');
             $table->integer('num_int');
             $table->integer('codigo_postal');
+            $table->softdeletes();
             $table->timestamps();
         });
     }

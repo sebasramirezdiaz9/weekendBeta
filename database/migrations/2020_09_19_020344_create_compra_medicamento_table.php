@@ -22,7 +22,7 @@ class CreateCompraMedicamentoTable extends Migration
 
             $table->foreign('compra_id')->references('id')->on('compras')->onDelete('cascade');
             $table->foreign('medicamento_id')->references('id')->on('medicamento')->onDelete('cascade');
-
+            $table->softdeletes();
             $table->timestamps();
         });
     }

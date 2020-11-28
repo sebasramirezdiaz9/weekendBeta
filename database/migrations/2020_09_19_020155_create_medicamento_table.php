@@ -21,7 +21,7 @@ class CreateMedicamentoTable extends Migration
             $table->integer('precio_compra');
             $table->integer('precio_venta');
             $table->bigInteger('tipo_medicamento_id')->unsigned();
-
+            $table->softdeletes();
             $table->foreign('tipo_medicamento_id')->references('id')->on('tipos_medicamento');
             $table->timestamps();
         });

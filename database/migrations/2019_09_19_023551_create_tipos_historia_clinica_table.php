@@ -16,6 +16,7 @@ class CreateTiposHistoriaClinicaTable extends Migration
         Schema::create('tipos_historia_clinica', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->softdeletes();
             $table->timestamps();
         });
     }

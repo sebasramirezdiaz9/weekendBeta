@@ -21,7 +21,7 @@ class CreateComprasTable extends Migration
             $table->integer('total');
             $table->string('folio',255);
             $table->bigInteger('proveedor_id')->unsigned();
-
+            $table->softdeletes();
             $table->foreign('proveedor_id')->references('id')->on('proveedores');
             $table->timestamps();
         });

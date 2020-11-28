@@ -1,6 +1,6 @@
 <template>
     <div>
-       <v-server-table :url="$route('users.index')" :columns="columns" ref="table" :options="options" :filterByColumn="true" >
+       <v-server-table :url="$route('doctors.index')" :columns="columns" ref="table" :options="options" :filterByColumn="true" >
             <div slot="actions" slot-scope="props" class="action-buttons">
                          <template v-if="props.row.email_verified_at==null">
                             <button title="Reenviar email" type="button" class="btn btn-warning" :data-id="props.row.id" @click="resendEmail(props.row.id)">
@@ -70,7 +70,7 @@
                     confirmButtonText: 'Si, Eliminar!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete(route('users.destroy', [id]), {
+                        axios.delete(route('doctors.destroy', [id]), {
                         }).then( () => {
                             this.$refs.table.refresh();
                         }).catch(function (error) {

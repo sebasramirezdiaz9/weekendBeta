@@ -17,7 +17,7 @@ class CreateInventariosTable extends Migration
             $table->id();
             $table->bigInteger('medicamento_id')->unsigned();
             $table->integer('cantidad');
-
+            $table->softdeletes();
            
             $table->timestamps();
             $table->foreign('medicamento_id')->references('id')->on('medicamento');

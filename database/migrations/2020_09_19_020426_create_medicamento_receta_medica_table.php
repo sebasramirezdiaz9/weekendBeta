@@ -22,7 +22,7 @@ class CreateMedicamentoRecetaMedicaTable extends Migration
 
             $table->foreign('medicamento_id')->references('id')->on('medicamento')->onDelete('cascade');
             $table->foreign('receta_medica_id')->references('id')->on('recetas_medicas')->onDelete('cascade');
-
+            $table->softdeletes();
             $table->timestamps();
         });
     }

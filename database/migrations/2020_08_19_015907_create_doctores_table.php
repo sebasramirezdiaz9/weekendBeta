@@ -22,7 +22,7 @@ class CreateDoctoresTable extends Migration
             $table->string('universidad',100);
             $table->string('cedula_profesional',100);
             $table->bigInteger('user_id')->unsigned();
-            
+            $table->softdeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -65,26 +65,7 @@ class UserController extends Controller
 
         return $user;
     }
-    /**
-     * Search user after this compares if token receives by email matchs 
-     * token from db user can update his password
-     * @return user
-     */
-    public function confirm(Request $request)
-    {
-        $id = request()->get('id');
-        $user= User::find($id);
-        if($user->email_verified_at==null)
-        {
-            return view('email.confirmaccount',compact(
-                'user'
-            ));
-        }
-        else{
-            Auth::loginUsingId($user->id);
-            return redirect()->route('home'); 
-        }
-    }
+    
     /**
      * Update the specified resource in storage.
      *
@@ -114,20 +95,5 @@ class UserController extends Controller
 
         return $user;
     }
-    public function resend($id)
-    {
-        $user = User::findOrfail($id);
-        $user->notify(new AccountConfirm());
-        return $user;
-    }  
-    public function validation(PasswordRequest $request)
-    {
-        $user = User::findOrfail($request->id);
-        $user->password=bcrypt($request->password);
-        $user->email_verified_at=Carbon::now();
-        $user->save();
-        Auth::loginUsingId($request->id);
-        return redirect()->route('home');
-        
-    }
+    
 }

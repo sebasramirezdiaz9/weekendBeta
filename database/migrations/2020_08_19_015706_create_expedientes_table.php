@@ -18,6 +18,7 @@ class CreateExpedientesTable extends Migration
             $table->integer('peso');
             $table->integer('altura');
             $table->text('alergias');
+            $table->softdeletes();
             $table->timestamps();
         });
     }
