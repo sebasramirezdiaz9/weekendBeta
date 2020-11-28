@@ -18,7 +18,7 @@ class CreateObservacionesTable extends Migration
             $table->text('notas');
             $table->date('fecha');
             $table->bigInteger('expediente_id')->unsigned();
-
+            $table->softdeletes();
             $table->foreign('expediente_id')->references('id')->on('expedientes')->onDelete('cascade');
             $table->timestamps();
         });

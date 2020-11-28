@@ -20,6 +20,7 @@ class CreateDetallesPagoTable extends Migration
             $table->bigInteger('metodo_pago_id')->unsigned();
 
             $table->timestamps();
+            $table->softdeletes();
             $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
             $table->foreign('metodo_pago_id')->references('id')->on('metodos_pago')->onDelete('cascade');
         });

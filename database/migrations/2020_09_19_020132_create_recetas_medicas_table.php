@@ -18,6 +18,7 @@ class CreateRecetasMedicasTable extends Migration
             $table->bigInteger('cita_id')->unsigned();
             $table->bigInteger('estado_receta_id')->unsigned();
             $table->timestamps();
+            $table->softdeletes();
             $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
             $table->foreign('estado_receta_id')->references('id')->on('estado_receta')->onDelete('cascade');
         });

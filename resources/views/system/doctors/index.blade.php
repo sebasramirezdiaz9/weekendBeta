@@ -4,7 +4,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @routes
 @section('content_header')
-    <h1>Empleados</h1>
+    <h1>Doctores</h1>
 @stop
 
 @section('content')

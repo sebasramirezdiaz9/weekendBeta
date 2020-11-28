@@ -16,6 +16,7 @@ class CreateEstadoRecetaTable extends Migration
         Schema::create('estado_receta', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',255);
+            $table->softdeletes();
             $table->timestamps();
         });
     }

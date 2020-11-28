@@ -23,6 +23,7 @@ class CreateEmpleadosTable extends Migration
 
             $table->foreign('direccion_id')->references('id')->on('direcciones')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softdeletes();
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class CreateVentasTable extends Migration
             $table->string('folio',100);
             $table->bigInteger('metodo_pago_id')->unsigned();
             $table->bigInteger('paciente_id')->unsigned()->nullable();
-
+            $table->softdeletes();
             $table->timestamps();
         });
     }

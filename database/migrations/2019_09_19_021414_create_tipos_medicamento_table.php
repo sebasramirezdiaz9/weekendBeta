@@ -16,6 +16,7 @@ class CreateTiposMedicamentoTable extends Migration
         Schema::create('tipos_medicamento', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',255);
+            $table->softdeletes();
             $table->timestamps();
         });
     }
