@@ -11,6 +11,10 @@ Vue.prototype.route = window.route;
 import alvue from '@myshell/alvue'
 import { ServerTable } from 'vue-tables-2';
 import VModal from 'vue-js-modal';
+import 'sweetalert2/src/sweetalert2.scss';
+
+// CommonJS
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
