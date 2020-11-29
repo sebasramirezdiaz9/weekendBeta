@@ -31,6 +31,8 @@ Vue.use(alvue);
 
 import UserIndex from './components/users/UserIndex';
 import CreateUser from './components/users/UserCreate';
+import EmployeeIndex from './components/employees/EmployeeIndex';
+import EmployeeCreate from './components/employees/EmployeeCreate';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -46,6 +48,8 @@ const app = new Vue({
     el: '#app',
     components:{
         UserIndex,
-        CreateUser
+        CreateUser,
+        EmployeeIndex,
+        EmployeeCreate
     }
 });
