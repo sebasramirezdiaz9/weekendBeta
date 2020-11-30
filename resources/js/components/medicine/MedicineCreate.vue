@@ -41,7 +41,7 @@
                  <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Presentacion</label>
+                            <label for="name">Presentación</label>
                             <input type="text" class="form-control" id="presentacion" name="presentacion" v-model="medicine.presentacion" >
                         </div>
                     </div>

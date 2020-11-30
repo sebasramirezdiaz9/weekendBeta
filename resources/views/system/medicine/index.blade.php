@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes registrar tus medicamentos de manera correspondiente así como ver, editar y eliminar los mismos</p>
+    <p>En este apartado puedes registrar los medicamentos así como ver, editar y eliminar los mismos</p>
     <div id="app">
         <medicine-create></medicine-create><br>
         <medicine-index></medicine-index>

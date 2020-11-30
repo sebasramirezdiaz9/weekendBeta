@@ -24,8 +24,5 @@ class Medicine extends Model
     ];
 
 
-    public function File()
-    {
-        return $this->hasOne(File::class);
-    }
+    
 }

@@ -46612,7 +46612,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Presentacion")
+                        _vm._v("Presentación")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -46966,7 +46966,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Presentacion")
+                        _vm._v("Presentación")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -47409,7 +47409,7 @@ var render = function() {
               _c("div", { staticClass: "col-md-6" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "name" } }, [
-                    _vm._v("Presentacion")
+                    _vm._v("Presentación")
                   ]),
                   _vm._v(" "),
                   _c("input", {
