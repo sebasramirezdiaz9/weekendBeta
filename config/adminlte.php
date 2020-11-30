@@ -262,7 +262,7 @@ return [
         ],
         [
             'text'        => 'Pacientes',
-            'url'         => 'admin/pages',
+            'url'         => 'admin/patients',
             'icon'        => 'fas fa-fw fa-user-tie',
             'icon_color'  => 'red',
             'label_color' => 'success',

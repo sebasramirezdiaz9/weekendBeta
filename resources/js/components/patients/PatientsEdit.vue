@@ -1,0 +1,115 @@
+<template>
+    <div>
+        <modal name="edit-patient" height="auto" width="50%" @before-open="beforeOpen" :scrollable="true">
+                <alv-form :action="route('patients.update',id)" method="put" id="createPatient" :spinner="true" @after-done="afterDone" autocomplete="off" :data-object="patient" ref="alv-form" >
+                    <div class="modal-header">
+                        <h5 class="modal-title"><strong>Editar Usuario</strong></h5>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" @click="$modal.hide('edit-patient')">
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                               
+                  <div class="row">
+                          <div class="col-md-12">
+                              <div class="alert alert-info" role="alert">
+                               Datos Personales
+                                </div>
+                          </div>
+                      </div>
+                       <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" v-model="patient.name" >
+                        </div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="content">Apellido Paterno</label>
+                            <input type="text" class="form-control" id="ape_pat" name="ape_pat" v-model="patient.ape_pat" >
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Apellido Materno</label>
+                            <input type="text" class="form-control" id="ape_mat" name="ape_mat" v-model="patient.ape_mat" >
+                        </div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="content">Telefono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" v-model="patient.telefono" >
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Fecha de Naciemiento</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" v-model="patient.fecha_nacimiento" >
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Genero</label>
+                            <select  class="form-control" id="fecha_nacimiento" name="genero" v-model="patient.genero" >
+                                <option value="mujer">Femenino</option>
+                                <option value="hombre">Masculino</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                        
+                
+            
+                    </div>        
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    </div>
+                </alv-form>
+            </modal>
+    </div>
+</template>
+<script>
+    export default {
+        
+        data(){
+            return {
+                 patient:
+                {
+                    name: '',
+                    ape_mat: '',
+                    ape_pat: '',
+                    telefono: '',
+                    universidad: '',
+                    fecha_nacimiento:'',
+                    genero: ''
+                },
+                id: 0
+            }
+        },
+        methods: {
+            afterDone(response){
+                if(response)
+                 {
+                    //this.showToastr({type: 'success', title: 'Exito', message: 'El usuario se creó correctamente'});
+                    window.location = this.route('patients.view');
+                 }
+            },
+            beforeOpen(event)
+            {
+                console.log(event);
+                this.id = event.params;
+                axios.get(this.$route('patients.show',event.params)).then((response) =>
+                    {
+                       
+                        this.patient = response.data;
+                    }
+                )
+            },
+        }
+    }
+</script>

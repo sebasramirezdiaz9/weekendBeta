@@ -19,12 +19,8 @@ class CreatePacientesTable extends Migration
             $table->string('ape_mat',255);
             $table->string('ape_pat',255);
             $table->string('telefono',255);
+            $table->string('genero',255);
             $table->date('fecha_nacimiento');
-            $table->bigInteger('direccion_id')->unsigned();
-            $table->bigInteger('expediente_id')->unsigned();
-
-            $table->foreign('direccion_id')->references('id')->on('direcciones')->onDelete('cascade');
-            $table->foreign('expediente_id')->references('id')->on('expedientes')->onDelete('cascade');
             $table->softdeletes();
             $table->timestamps();
         });

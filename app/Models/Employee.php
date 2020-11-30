@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
      /**
      * The table associated with the model.
