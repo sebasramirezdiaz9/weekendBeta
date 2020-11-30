@@ -38,7 +38,7 @@
                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                            <label for="content">Telefono</label>
+                            <label for="content">Teléfono</label>
                             <input type="text" class="form-control" disabled id="telefono" name="telefono" v-model="patient.telefono" >
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Genero</label>
+                            <label for="name">Género</label>
                             <select  class="form-control" id="fecha_nacimiento" disabled name="genero" v-model="patient.genero" >
                                 <option value="mujer">Femenino</option>
                                 <option value="hombre">Masculino</option>

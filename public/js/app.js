@@ -46124,7 +46124,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "content" } }, [
-                        _vm._v("Telefono")
+                        _vm._v("Teléfono")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -46202,7 +46202,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Genero")
+                        _vm._v("Género")
                       ]),
                       _vm._v(" "),
                       _c(
@@ -46467,7 +46467,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "content" } }, [
-                        _vm._v("Telefono")
+                        _vm._v("Teléfono")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -46545,7 +46545,7 @@ var render = function() {
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Genero")
+                        _vm._v("Género")
                       ]),
                       _vm._v(" "),
                       _c(
@@ -46902,7 +46902,7 @@ var render = function() {
               _c("div", { staticClass: "col-md-6" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "content" } }, [
-                    _vm._v("Telefono")
+                    _vm._v("Teléfono")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -46977,7 +46977,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "col-md-6" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Genero")]),
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Género")]),
                   _vm._v(" "),
                   _c(
                     "select",

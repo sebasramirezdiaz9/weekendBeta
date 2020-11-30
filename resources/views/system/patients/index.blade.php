@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes administrar los usuarios de manera correspondiente, para registrar, ver o editar a los mismos</p>
+    <p>En este apartado puedes registrar a tus pacientes de manera correspondiente así como ver, editar y eliminar los mismos</p>
     <div id="app">
         <patients-create></patients-create><br>
         <patients-index></patients-index>
