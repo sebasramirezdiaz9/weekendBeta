@@ -7,10 +7,10 @@
                                 <i class="far fa-envelope"></i>
                             </button>
                         </template>
-                        <button  title="Ver" :data-id="props.row.id"  type="button" class="btn btn-success" @click="$modal.show('show-user',props.row.id)">
+                        <button  title="Ver" :data-id="props.row.id"  type="button" class="btn btn-success" @click="$modal.show('show-employee',props.row.id)">
                             <i class="fas fa-eye"></i>
                         </button>
-                        <button  title="Editar" :data-id="props.row.id" type="button" class="btn btn-info"  @click="$modal.show('edit-user',props.row.id)">
+                        <button  title="Editar" :data-id="props.row.id" type="button" class="btn btn-info"  @click="$modal.show('edit-employee',props.row.id)">
                             <i class="fas fa-edit" aria-hidden="true"></i>
                         </button>
                     <button  title="Eliminar" :data-id="props.row.id"  class="btn btn-danger" @click="deleteRegister(props.row.id)">
@@ -37,9 +37,10 @@
                     perPageValues: [10,25,50,100],
                     filterByColumn: true,
                     headings: {
-                        name: "Nombre",
+                        nombre: "Nombre",
+                        ape_pat: "Apellido Paterno",
                         actions: "Acciones",
-                        email:"Correo",
+                        "user.email":"Correo",
                         human_date_created:"Fecha"
                     },
                     sortable:['title',' author','human_date_created'],
@@ -49,7 +50,7 @@
                     },
                     texts: text,
                 },
-                columns:['name','email','human_date_created' ,'actions'],
+                columns:['nombre','ape_pat','user.email','human_date_created' ,'actions'],
 
             }
         },
@@ -70,7 +71,7 @@
                     confirmButtonText: 'Si, Eliminar!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete(route('doctors.destroy', [id]), {
+                        axios.delete(route('employees.destroy', [id]), {
                         }).then( () => {
                             this.$refs.table.refresh();
                         }).catch(function (error) {

@@ -123,12 +123,12 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
       
-        $doctor = Doctor::findOrfail($id);
-        $user = User::findOrfail($doctor->user_id);
+        $employee = Employee::findOrfail($id);
+        $user = User::findOrfail($employee->user_id);
         $user->delete();
-        $doctor->delete();
+        $employee->delete();
 
-        return $doctor;
+        return $employee;
     }
     public function resend($id)
     {

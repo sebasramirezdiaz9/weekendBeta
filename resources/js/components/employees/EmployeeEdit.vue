@@ -1,10 +1,10 @@
 <template>
     <div>
-        <modal name="edit-user" height="auto" width="50%" @before-open="beforeOpen" :scrollable="true">
-                <alv-form :action="route('doctors.update',id)" method="put" id="createUser" :spinner="true" @after-done="afterDone" autocomplete="off" :data-object="{user, doctor}" ref="alv-form" >
+        <modal name="edit-employee" height="auto" width="50%" @before-open="beforeOpen" :scrollable="true">
+                <alv-form :action="route('employees.update',id)" method="put" id="createUser" :spinner="true" @after-done="afterDone" autocomplete="off" :data-object="{user, employee}" ref="alv-form" >
                     <div class="modal-header">
                         <h5 class="modal-title"><strong>Editar Usuario</strong></h5>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" @click="$modal.hide('edit-user')">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" @click="$modal.hide('edit-employee')">
                         <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -41,13 +41,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">Nombre</label>
-                            <input type="text" class="form-control" id="name" name="doctor.name" v-model="doctor.name" >
+                            <input type="text" class="form-control" id="name" name="employee.nombre" v-model="employee.nombre" >
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
                             <label for="content">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="ape_pat" name="doctor.ape_pat" v-model="doctor.ape_pat" >
+                            <input type="text" class="form-control" id="ape_pat" name="employee.ape_pat" v-model="employee.ape_pat" >
                         </div>
                     </div>
                 </div>
@@ -55,27 +55,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">Apellido Materno</label>
-                            <input type="text" class="form-control" id="ape_mat" name="doctor.ape_mat" v-model="doctor.ape_mat" >
+                            <input type="text" class="form-control" id="ape_mat" name="employee.ape_mat" v-model="employee.ape_mat" >
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
                             <label for="content">Telefono</label>
-                            <input type="text" class="form-control" id="telefono" name="doctor.telefono" v-model="doctor.telefono" >
-                        </div>
-                    </div>
-                </div>
-                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">Cedula Profesional</label>
-                            <input type="text" class="form-control" id="cedula_profesional" name="doctor.cedula_profesional" v-model="doctor.cedula_profesional" >
-                        </div>
-                    </div>
-                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="content">Universidad</label>
-                            <input type="text" class="form-control" id="universidad" name="doctor.universidad" v-model="doctor.universidad" >
+                            <input type="text" class="form-control" id="telefono" name="employee.telefono" v-model="employee.telefono" >
                         </div>
                     </div>
                 </div>
@@ -96,14 +82,12 @@
                     name: '',
                     email: '',
                 },
-                doctor:
+                employee:
                 {
                     name: '',
                     ape_mat: '',
                     ape_pat: '',
                     telefono: '',
-                    universidad: '',
-                    cedula_profesional: '',
                     user_id: ''
                 },
                 id: 0
@@ -119,12 +103,11 @@
             },
             beforeOpen(event)
             {
-                console.log(event);
                 this.id = event.params;
-                axios.get(this.$route('doctors.show',event.params)).then((response) =>
+                axios.get(this.$route('employees.show',event.params)).then((response) =>
                     {
                         this.user = response.data.user;
-                        this.doctor = response.data;
+                        this.employee = response.data;
                     }
                 )
             },

@@ -2400,20 +2400,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2421,13 +2407,11 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         email: ''
       },
-      doctor: {
+      employee: {
         name: '',
         ape_mat: '',
         ape_pat: '',
         telefono: '',
-        universidad: '',
-        cedula_profesional: '',
         user_id: ''
       },
       id: 0
@@ -2443,11 +2427,10 @@ __webpack_require__.r(__webpack_exports__);
     beforeOpen: function beforeOpen(event) {
       var _this = this;
 
-      console.log(event);
       this.id = event.params;
-      axios.get(this.$route('doctors.show', event.params)).then(function (response) {
+      axios.get(this.$route('employees.show', event.params)).then(function (response) {
         _this.user = response.data.user;
-        _this.doctor = response.data;
+        _this.employee = response.data;
       });
     }
   }
@@ -2506,9 +2489,10 @@ __webpack_require__.r(__webpack_exports__);
         perPageValues: [10, 25, 50, 100],
         filterByColumn: true,
         headings: {
-          name: "Nombre",
+          nombre: "Nombre",
+          ape_pat: "Apellido Paterno",
           actions: "Acciones",
-          email: "Correo",
+          "user.email": "Correo",
           human_date_created: "Fecha"
         },
         sortable: ['title', ' author', 'human_date_created'],
@@ -2523,7 +2507,7 @@ __webpack_require__.r(__webpack_exports__);
         },
         texts: _tables_text_js__WEBPACK_IMPORTED_MODULE_0__["default"]
       },
-      columns: ['name', 'email', 'human_date_created', 'actions']
+      columns: ['nombre', 'ape_pat', 'user.email', 'human_date_created', 'actions']
     };
   },
   components: {
@@ -2545,7 +2529,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Si, Eliminar!'
       }).then(function (result) {
         if (result.value) {
-          axios["delete"](route('doctors.destroy', [id]), {}).then(function () {
+          axios["delete"](route('employees.destroy', [id]), {}).then(function () {
             _this.$refs.table.refresh();
           })["catch"](function (error) {
             console.log(error);
@@ -2641,20 +2625,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2662,13 +2632,11 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         email: ''
       },
-      doctor: {
+      employee: {
         name: '',
         ape_mat: '',
         ape_pat: '',
         telefono: '',
-        universidad: '',
-        cedula_profesional: '',
         user_id: ''
       }
     };
@@ -2677,20 +2645,18 @@ __webpack_require__.r(__webpack_exports__);
     beforeOpen: function beforeOpen(event) {
       var _this = this;
 
-      axios.get(this.$route('doctors.show', event.params)).then(function (response) {
+      axios.get(this.$route('employees.show', event.params)).then(function (response) {
         _this.user = response.data.user;
-        _this.doctor = response.data;
+        _this.employee = response.data;
       });
     },
     beforeClose: function beforeClose() {
       this.user.name = '';
       this.user.email = '';
-      this.doctor.name = '';
-      this.doctor.ape_pat = '';
-      this.doctor.ape_mat = '';
-      this.doctor.telefono = '';
-      this.doctor.universidad = '';
-      this.doctor.cedula_profesional = '';
+      this.employee.name = '';
+      this.employee.ape_pat = '';
+      this.employee.ape_mat = '';
+      this.employee.telefono = '';
     }
   }
 });
@@ -46359,7 +46325,7 @@ var render = function() {
         "modal",
         {
           attrs: {
-            name: "edit-user",
+            name: "edit-employee",
             height: "auto",
             width: "50%",
             scrollable: true
@@ -46372,12 +46338,12 @@ var render = function() {
             {
               ref: "alv-form",
               attrs: {
-                action: _vm.route("doctors.update", _vm.id),
+                action: _vm.route("employees.update", _vm.id),
                 method: "put",
                 id: "createUser",
                 spinner: true,
                 autocomplete: "off",
-                "data-object": { user: _vm.user, doctor: _vm.doctor }
+                "data-object": { user: _vm.user, employee: _vm.employee }
               },
               on: { "after-done": _vm.afterDone }
             },
@@ -46398,7 +46364,7 @@ var render = function() {
                     },
                     on: {
                       click: function($event) {
-                        return _vm.$modal.hide("edit-user")
+                        return _vm.$modal.hide("edit-employee")
                       }
                     }
                   },
@@ -46520,23 +46486,27 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.doctor.name,
-                            expression: "doctor.name"
+                            value: _vm.employee.nombre,
+                            expression: "employee.nombre"
                           }
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
                           id: "name",
-                          name: "doctor.name"
+                          name: "employee.nombre"
                         },
-                        domProps: { value: _vm.doctor.name },
+                        domProps: { value: _vm.employee.nombre },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.doctor, "name", $event.target.value)
+                            _vm.$set(
+                              _vm.employee,
+                              "nombre",
+                              $event.target.value
+                            )
                           }
                         }
                       })
@@ -46554,23 +46524,27 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.doctor.ape_pat,
-                            expression: "doctor.ape_pat"
+                            value: _vm.employee.ape_pat,
+                            expression: "employee.ape_pat"
                           }
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
                           id: "ape_pat",
-                          name: "doctor.ape_pat"
+                          name: "employee.ape_pat"
                         },
-                        domProps: { value: _vm.doctor.ape_pat },
+                        domProps: { value: _vm.employee.ape_pat },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.doctor, "ape_pat", $event.target.value)
+                            _vm.$set(
+                              _vm.employee,
+                              "ape_pat",
+                              $event.target.value
+                            )
                           }
                         }
                       })
@@ -46590,23 +46564,27 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.doctor.ape_mat,
-                            expression: "doctor.ape_mat"
+                            value: _vm.employee.ape_mat,
+                            expression: "employee.ape_mat"
                           }
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
                           id: "ape_mat",
-                          name: "doctor.ape_mat"
+                          name: "employee.ape_mat"
                         },
-                        domProps: { value: _vm.doctor.ape_mat },
+                        domProps: { value: _vm.employee.ape_mat },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.doctor, "ape_mat", $event.target.value)
+                            _vm.$set(
+                              _vm.employee,
+                              "ape_mat",
+                              $event.target.value
+                            )
                           }
                         }
                       })
@@ -46624,103 +46602,25 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.doctor.telefono,
-                            expression: "doctor.telefono"
+                            value: _vm.employee.telefono,
+                            expression: "employee.telefono"
                           }
                         ],
                         staticClass: "form-control",
                         attrs: {
                           type: "text",
                           id: "telefono",
-                          name: "doctor.telefono"
+                          name: "employee.telefono"
                         },
-                        domProps: { value: _vm.doctor.telefono },
+                        domProps: { value: _vm.employee.telefono },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.doctor,
+                              _vm.employee,
                               "telefono",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Cedula Profesional")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.doctor.cedula_profesional,
-                            expression: "doctor.cedula_profesional"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "cedula_profesional",
-                          name: "doctor.cedula_profesional"
-                        },
-                        domProps: { value: _vm.doctor.cedula_profesional },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.doctor,
-                              "cedula_profesional",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "content" } }, [
-                        _vm._v("Universidad")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.doctor.universidad,
-                            expression: "doctor.universidad"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "universidad",
-                          name: "doctor.universidad"
-                        },
-                        domProps: { value: _vm.doctor.universidad },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.doctor,
-                              "universidad",
                               $event.target.value
                             )
                           }
@@ -46821,7 +46721,7 @@ var render = function() {
                       },
                       on: {
                         click: function($event) {
-                          return _vm.$modal.show("show-user", props.row.id)
+                          return _vm.$modal.show("show-employee", props.row.id)
                         }
                       }
                     },
@@ -46839,7 +46739,7 @@ var render = function() {
                       },
                       on: {
                         click: function($event) {
-                          return _vm.$modal.show("edit-user", props.row.id)
+                          return _vm.$modal.show("edit-employee", props.row.id)
                         }
                       }
                     },
@@ -46908,7 +46808,7 @@ var render = function() {
         "modal",
         {
           attrs: {
-            name: "show-user",
+            name: "show-employee",
             height: "auto",
             width: "50%",
             scrollable: true
@@ -46918,7 +46818,7 @@ var render = function() {
         [
           _c("div", { staticClass: "modal-header" }, [
             _c("h5", { staticClass: "modal-title" }, [
-              _c("strong", [_vm._v("Datos del Doctor")])
+              _c("strong", [_vm._v("Datos del Empleado")])
             ]),
             _vm._v(" "),
             _c(
@@ -46932,7 +46832,7 @@ var render = function() {
                 },
                 on: {
                   click: function($event) {
-                    return _vm.$modal.hide("show-user")
+                    return _vm.$modal.hide("show-employee")
                   }
                 }
               },
@@ -47049,8 +46949,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.doctor.name,
-                        expression: "doctor.name"
+                        value: _vm.employee.nombre,
+                        expression: "employee.nombre"
                       }
                     ],
                     staticClass: "form-control",
@@ -47058,15 +46958,15 @@ var render = function() {
                       type: "text",
                       disabled: "",
                       id: "name",
-                      name: "doctor.name"
+                      name: "employee.nombre"
                     },
-                    domProps: { value: _vm.doctor.name },
+                    domProps: { value: _vm.employee.nombre },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.doctor, "name", $event.target.value)
+                        _vm.$set(_vm.employee, "nombre", $event.target.value)
                       }
                     }
                   })
@@ -47084,8 +46984,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.doctor.ape_pat,
-                        expression: "doctor.ape_pat"
+                        value: _vm.employee.ape_pat,
+                        expression: "employee.ape_pat"
                       }
                     ],
                     staticClass: "form-control",
@@ -47093,15 +46993,15 @@ var render = function() {
                       type: "text",
                       disabled: "",
                       id: "ape_pat",
-                      name: "doctor.ape_pat"
+                      name: "employee.ape_pat"
                     },
-                    domProps: { value: _vm.doctor.ape_pat },
+                    domProps: { value: _vm.employee.ape_pat },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.doctor, "ape_pat", $event.target.value)
+                        _vm.$set(_vm.employee, "ape_pat", $event.target.value)
                       }
                     }
                   })
@@ -47121,8 +47021,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.doctor.ape_mat,
-                        expression: "doctor.ape_mat"
+                        value: _vm.employee.ape_mat,
+                        expression: "employee.ape_mat"
                       }
                     ],
                     staticClass: "form-control",
@@ -47130,15 +47030,15 @@ var render = function() {
                       type: "text",
                       disabled: "",
                       id: "ape_mat",
-                      name: "doctor.ape_mat"
+                      name: "employee.ape_mat"
                     },
-                    domProps: { value: _vm.doctor.ape_mat },
+                    domProps: { value: _vm.employee.ape_mat },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.doctor, "ape_mat", $event.target.value)
+                        _vm.$set(_vm.employee, "ape_mat", $event.target.value)
                       }
                     }
                   })
@@ -47156,8 +47056,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.doctor.telefono,
-                        expression: "doctor.telefono"
+                        value: _vm.employee.telefono,
+                        expression: "employee.telefono"
                       }
                     ],
                     staticClass: "form-control",
@@ -47165,91 +47065,15 @@ var render = function() {
                       type: "text",
                       disabled: "",
                       id: "telefono",
-                      name: "doctor.telefono"
+                      name: "employee.telefono"
                     },
-                    domProps: { value: _vm.doctor.telefono },
+                    domProps: { value: _vm.employee.telefono },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.doctor, "telefono", $event.target.value)
-                      }
-                    }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [
-                    _vm._v("Cedula Profesional")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.doctor.cedula_profesional,
-                        expression: "doctor.cedula_profesional"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      disabled: "",
-                      id: "cedula_profesional",
-                      name: "doctor.cedula_profesional"
-                    },
-                    domProps: { value: _vm.doctor.cedula_profesional },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.doctor,
-                          "cedula_profesional",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "content" } }, [
-                    _vm._v("Universidad")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.doctor.universidad,
-                        expression: "doctor.universidad"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      disabled: "",
-                      id: "universidad",
-                      name: "doctor.universidad"
-                    },
-                    domProps: { value: _vm.doctor.universidad },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.doctor, "universidad", $event.target.value)
+                        _vm.$set(_vm.employee, "telefono", $event.target.value)
                       }
                     }
                   })
@@ -47266,7 +47090,7 @@ var render = function() {
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
-                    return _vm.$modal.hide("show-user")
+                    return _vm.$modal.hide("show-employee")
                   }
                 }
               },
