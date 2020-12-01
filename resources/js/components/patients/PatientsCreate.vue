@@ -87,7 +87,6 @@
                     ape_mat: '',
                     ape_pat: '',
                     telefono: '',
-                    universidad: '',
                     fecha_nacimiento:'',
                     genero: ''
                 }

@@ -274,6 +274,14 @@ return [
             'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
+        ['header' => 'FARMACIA'],
+        [
+            'text' => 'Medicamentos',
+            'url'  => 'admin/medicine',
+            'icon' => 'fas fa-capsules',
+        ],
+
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

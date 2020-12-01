@@ -33,7 +33,8 @@ import UserIndex from './components/users/UserIndex';
 import CreateUser from './components/users/UserCreate';
 import PatientsCreate from './components/patients/PatientsCreate';
 import PatientsIndex from './components/patients/PatientsIndex';
-
+import MedicineCreate from './components/medicine/MedicineCreate';
+import MedicineIndex from './components/medicine/MedicineIndex'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -52,6 +53,8 @@ const app = new Vue({
         UserIndex,
         CreateUser,
         PatientsCreate,
-        PatientsIndex
+        PatientsIndex,
+        MedicineCreate,
+        MedicineIndex,
     }
 });
