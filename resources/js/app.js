@@ -31,6 +31,8 @@ Vue.use(alvue);
 
 import UserIndex from './components/users/UserIndex';
 import CreateUser from './components/users/UserCreate';
+import EmployeeIndex from './components/employees/EmployeeIndex';
+import EmployeeCreate from './components/employees/EmployeeCreate';
 import PatientsCreate from './components/patients/PatientsCreate';
 import PatientsIndex from './components/patients/PatientsIndex';
 import MedicineCreate from './components/medicine/MedicineCreate';
