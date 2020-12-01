@@ -18,7 +18,7 @@ class CreateProveedoresTable extends Migration
             $table->string('razon_social',255);
             $table->string('telefono',255);
             $table->string('contacto_directo',255);
-            $table->bigInteger('direccion_id')->unsigned();
+            $table->bigInteger('direccion_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softdeletes();
             $table->foreign('direccion_id')->references('id')->on('direcciones')->onDelete('cascade');

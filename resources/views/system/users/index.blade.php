@@ -8,10 +8,10 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes administrar los usuarios de manera correspondiente, para registrar, ver o editar a los mismos</p>
+    <p>En este apartado puedes administrar los empleados de manera correspondiente, para registrar, ver o editar a los mismos</p>
     <div id="app">
-        <create-user></create-user><br>
-        <user-index></user-index>
+        <employee-create></employee-create><br>
+        <employee-index></employee-index>
     </div>
 @stop
 
