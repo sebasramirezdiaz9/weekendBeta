@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Patients;
-use App\Http\Requests\PatientRequest;
+use App\Models\Date;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\DateRequest;
+use Carbon\Carbon;
 
-
-class PatientsController extends Controller
+class DateController extends Controller
 {
+     //
      /**
      * Display a listing of the resource.
      *
@@ -20,7 +22,7 @@ class PatientsController extends Controller
         $ascending =request()->get('ascending',1);
         $limit = request()->get('limit', false);
         $page = request()->get('page', false);
-        $data = Patients::all();
+        $data = Date::with('doctor', 'patient')->get();
         if ($limit&&$query)
             foreach (json_decode($query, true) as $column => $value)
                 if ($value !== "") {
@@ -30,7 +32,7 @@ class PatientsController extends Controller
                     });
 
                 }
-       
+
         $count = $data->count();
         $data = $data->slice(($page - 1) * $limit)->take($limit)->values();
         return compact('data', 'count');
@@ -40,44 +42,42 @@ class PatientsController extends Controller
 
       /**
      * 
-     * @return dcotor
+     * @return date
      */
     public function show($id)
     {
-        return Patients::findOrfail($id);
+        return Date::findOrfail($id)->append('doctor_name', 'patient_name');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param PatientRequest $request
+     * @param DateRequest $request
      * @return 
      */
-    public function store(PatientRequest $request)
+    public function store(DateRequest $request)
     {
-        $patient = new Patients();
-        $patient->fill($request->all());
-        $patient->save();
+        $date = new Date();
+        $date->fill($request->all());
+        $date->save();
 
-        return $patient;
+        return $date;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param PatientRequest $request
+     * @param DateRequest $request
      * @param int $id
      * @return array
      */
-    public function update(PatientRequest $request, $id)
+    public function update(DateRequest $request, $id)
     {
-        $patient = Patients::findOrfail($id);
-        $patient->fill($request->all());
-        $patient->save();
+        $date = Date::findOrfail($id);
+        $date->fill($request->all());
+        $date->save();
     
-       
- 
-        return $patient;
+        return $date;
     }
 
 
@@ -86,21 +86,15 @@ class PatientsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return user
+     * @return date
      */
     public function destroy($id)
     {
-        $patient = Patients::findOrfail($id);
-        $patient->delete();
-        $patient->delete();
+        $date = Date::findOrfail($id);
+        $date->delete();
 
-        return $patient;
-      
-    }
-
-    public function getAllPatients()
-    {
-        return Patients::all();
+        return $date;
+    
     }
 
 }

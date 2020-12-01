@@ -3,7 +3,7 @@
         <modal name="edit-user" height="auto" width="50%" @before-open="beforeOpen" :scrollable="true">
                 <alv-form :action="route('doctors.update',id)" method="put" id="createUser" :spinner="true" @after-done="afterDone" autocomplete="off" :data-object="{user, doctor}" ref="alv-form" >
                     <div class="modal-header">
-                        <h5 class="modal-title"><strong>Editar Usuario</strong></h5>
+                        <h5 class="modal-title"><strong>Editar Empleado</strong></h5>
                         <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" @click="$modal.hide('edit-user')">
                         <i class="fas fa-times"></i>
                         </button>

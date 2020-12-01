@@ -16,13 +16,12 @@ class CreateMedicamentoTable extends Migration
         Schema::create('medicamento', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',255);
+            $table->string('tipo_medicamento',255);
             $table->string('presentacion',255);
             $table->string('activo',255);
             $table->integer('precio_compra');
             $table->integer('precio_venta');
-            $table->bigInteger('tipo_medicamento_id')->unsigned();
             $table->softdeletes();
-            $table->foreign('tipo_medicamento_id')->references('id')->on('tipos_medicamento');
             $table->timestamps();
         });
     }

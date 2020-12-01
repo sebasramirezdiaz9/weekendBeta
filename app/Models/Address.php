@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Employee extends Model
+class Address extends Model
 {
-    use HasFactory, SoftDeletes;
-
-     /**
+    use SoftDeletes;
+    /**
      * The table associated with the model.
      *
      * @var string
      */
-    public $table = 'empleados';
+    public $table = 'direcciones';
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +22,7 @@ class Employee extends Model
      * @var array
      */
     protected $fillable = [
-        'nombre', 'ape_pat', 'ape_mat', 'telefono'
+        'calle', 'colonia', 'num_int', 'num_ext', 'codigo_postal'
     ];
 
     /**
@@ -35,23 +34,8 @@ class Employee extends Model
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public function user()
+    public function employee()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    
-    public function address()
-    {
-        return $this->belongsTo(Address::class, 'direcion_id');
+        return $this->hasOne(Employee::class);
     }
 }

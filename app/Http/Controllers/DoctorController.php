@@ -146,4 +146,9 @@ class DoctorController extends Controller
         return redirect()->route('home');
         
     }
+
+    public function getAllDoctors()
+    {
+        return Doctor::all();
+    }
 }

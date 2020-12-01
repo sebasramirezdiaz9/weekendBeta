@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Patients extends Model
+class Medicine extends Model
 {
     use SoftDeletes;
       /**
@@ -14,7 +14,7 @@ class Patients extends Model
      *
      * @var string
      */
-    public $table = 'pacientes';
+    public $table = 'medicamento';
 
     /**
      * The attributes that are mass assignable.
@@ -22,12 +22,9 @@ class Patients extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'ape_mat', 'ape_pat', 'telefono', 'genero', 'fecha_nacimiento'
+        'nombre', 'tipo_medicamento', 'presentacion', 'activo', 'precio_compra', 'precio_venta'
     ];
 
 
-    public function File()
-    {
-        return $this->hasOne(File::class);
-    }
+    
 }

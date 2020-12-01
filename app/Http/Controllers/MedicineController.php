@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Medicine;
+use App\Http\Requests\MedicineRequest;
 use Illuminate\Http\Request;
-use App\Models\Patients;
-use App\Http\Requests\PatientRequest;
 
-
-class PatientsController extends Controller
+class MedicineController extends Controller
 {
+    //
      /**
      * Display a listing of the resource.
      *
@@ -20,7 +19,7 @@ class PatientsController extends Controller
         $ascending =request()->get('ascending',1);
         $limit = request()->get('limit', false);
         $page = request()->get('page', false);
-        $data = Patients::all();
+        $data = Medicine::all();
         if ($limit&&$query)
             foreach (json_decode($query, true) as $column => $value)
                 if ($value !== "") {
@@ -40,44 +39,44 @@ class PatientsController extends Controller
 
       /**
      * 
-     * @return dcotor
+     * @return medicine
      */
     public function show($id)
     {
-        return Patients::findOrfail($id);
+        return Medicine::findOrfail($id);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param PatientRequest $request
+     * @param MedicineRequest $request
      * @return 
      */
-    public function store(PatientRequest $request)
+    public function store(MedicineRequest $request)
     {
-        $patient = new Patients();
-        $patient->fill($request->all());
-        $patient->save();
+        $medicine = new Medicine();
+        $medicine->fill($request->all());
+        $medicine->save();
 
-        return $patient;
+        return $medicine;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param PatientRequest $request
+     * @param MedicineRequest $request
      * @param int $id
      * @return array
      */
-    public function update(PatientRequest $request, $id)
+    public function update(MedicineRequest $request, $id)
     {
-        $patient = Patients::findOrfail($id);
-        $patient->fill($request->all());
-        $patient->save();
+        $medicine = Medicine::findOrfail($id);
+        $medicine->fill($request->all());
+        $medicine->save();
     
        
  
-        return $patient;
+        return $medicine;
     }
 
 
@@ -90,17 +89,11 @@ class PatientsController extends Controller
      */
     public function destroy($id)
     {
-        $patient = Patients::findOrfail($id);
-        $patient->delete();
-        $patient->delete();
+        $medicine = Medicine::findOrfail($id);
+        $medicine->delete();
 
-        return $patient;
-      
-    }
-
-    public function getAllPatients()
-    {
-        return Patients::all();
+        return $medicine;
+    
     }
 
 }

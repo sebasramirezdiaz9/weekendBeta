@@ -1,16 +1,11 @@
 <template>
     <div>
-       <v-server-table :url="$route('employees.index')" :columns="columns" ref="table" :options="options" :filterByColumn="true" >
+       <v-server-table :url="$route('dates.index')" :columns="columns" ref="table" :options="options" :filterByColumn="true" >
             <div slot="actions" slot-scope="props" class="action-buttons">
-                         <template v-if="props.row.email_verified_at==null">
-                            <button title="Reenviar email" type="button" class="btn btn-warning" :data-id="props.row.id" @click="resendEmail(props.row.id)">
-                                <i class="far fa-envelope"></i>
-                            </button>
-                        </template>
-                        <button  title="Ver" :data-id="props.row.id"  type="button" class="btn btn-success" @click="$modal.show('show-employee',props.row.id)">
+                        <button  title="Ver" :data-id="props.row.id"  type="button" class="btn btn-success" @click="$modal.show('show-date',props.row.id)">
                             <i class="fas fa-eye"></i>
                         </button>
-                        <button  title="Editar" :data-id="props.row.id" type="button" class="btn btn-info"  @click="$modal.show('edit-employee',props.row.id)">
+                        <button  title="Editar" :data-id="props.row.id" type="button" class="btn btn-info"  @click="$modal.show('edit-date',props.row.id)">
                             <i class="fas fa-edit" aria-hidden="true"></i>
                         </button>
                     <button  title="Eliminar" :data-id="props.row.id"  class="btn btn-danger" @click="deleteRegister(props.row.id)">
@@ -18,15 +13,15 @@
                     </button>
             </div>
         </v-server-table>
-        <employee-show></employee-show>
-        <employee-edit></employee-edit>
+        <date-show></date-show>
+        <date-edit></date-edit>
     </div>
 </template>
 <script>
 
     import text from './../tables/text.js';
-    import EmployeeShow from './EmployeeShow.vue';
-    import EmployeeEdit from './EmployeeEdit';
+    import DateShow from './DateShow.vue';
+    import DateEdit from './DateEdit';
     import Swal from 'sweetalert2';
     export default {
         data(){
@@ -37,10 +32,10 @@
                     perPageValues: [10,25,50,100],
                     filterByColumn: true,
                     headings: {
-                        nombre: "Nombre",
-                        ape_pat: "Apellido Paterno",
-                        actions: "Acciones",
-                        "user.email":"Correo",
+                        "patient.name": "Paciente",
+                        "doctor.name": "Doctor",
+                        fecha:"Fecha",
+                        hora: "Hora",
                         human_date_created:"Fecha"
                     },
                     sortable:['title',' author','human_date_created'],
@@ -50,13 +45,13 @@
                     },
                     texts: text,
                 },
-                columns:['nombre','ape_pat','user.email','human_date_created' ,'actions'],
+                columns:['patient.name','doctor.name','fecha','hora','actions'],
 
             }
         },
         components:{
-            EmployeeShow,
-            EmployeeEdit
+            DateShow,
+            DateEdit
         },
         methods: {
             deleteRegister(id) {
@@ -71,7 +66,7 @@
                     confirmButtonText: 'Si, Eliminar!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete(route('employees.destroy', [id]), {
+                        axios.delete(route('dates.destroy', [id]), {
                         }).then( () => {
                             this.$refs.table.refresh();
                         }).catch(function (error) {

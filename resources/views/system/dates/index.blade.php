@@ -4,14 +4,14 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @routes
 @section('content_header')
-    <h1>Empleados</h1>
+    <h1>Citas</h1>
 @stop
 
 @section('content')
-    <p>En este apartado puedes administrar los empleados de manera correspondiente, para registrar, ver o editar a los mismos</p>
+    <p>En este apartado puedes administrar las citas de los pacientes, para registrar, ver o editar a las mismas</p>
     <div id="app">
-        <employee-create></employee-create><br>
-        <employee-index></employee-index>
+        <date-create></date-create><br>
+        <date-index></date-index>
     </div>
 @stop
 

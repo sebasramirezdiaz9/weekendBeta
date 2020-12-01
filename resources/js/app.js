@@ -11,7 +11,12 @@ Vue.prototype.route = window.route;
 import alvue from '@myshell/alvue'
 import { ServerTable } from 'vue-tables-2';
 import VModal from 'vue-js-modal';
+import VueFlatPickr from 'vue-flatpickr-component';
 import 'sweetalert2/src/sweetalert2.scss';
+import flatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 
 // CommonJS
 
@@ -29,12 +34,21 @@ Vue.use(ServerTable);
 Vue.use(VModal);
 Vue.use(alvue);
 
+
+Vue.component('flat-pickr',flatPickr);   
+
 import UserIndex from './components/users/UserIndex';
 import CreateUser from './components/users/UserCreate';
+import EmployeeIndex from './components/employees/EmployeeIndex';
+import EmployeeCreate from './components/employees/EmployeeCreate';
 import PatientsCreate from './components/patients/PatientsCreate';
 import PatientsIndex from './components/patients/PatientsIndex';
+import MedicineCreate from './components/medicine/MedicineCreate';
+import MedicineIndex from './components/medicine/MedicineIndex'
+import DateCreate from './components/dates/DateCreate';
+import DateIndex from './components/dates/DateIndex'
 
-
+Vue.component('v-select', vSelect);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51,7 +65,13 @@ const app = new Vue({
     components:{
         UserIndex,
         CreateUser,
+        EmployeeIndex,
+        EmployeeCreate,
         PatientsCreate,
-        PatientsIndex
+        PatientsIndex,
+        MedicineCreate,
+        MedicineIndex,
+        DateCreate,
+        DateIndex
     }
 });
