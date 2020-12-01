@@ -18,7 +18,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('nombre',100);
             $table->string('ape_pat',100);
             $table->string('ape_mat',100);
-            $table->bigInteger('direccion_id')->unsigned();
+            $table->string('telefono',100);
+            $table->bigInteger('direccion_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned();
 
             $table->foreign('direccion_id')->references('id')->on('direcciones')->onDelete('cascade');

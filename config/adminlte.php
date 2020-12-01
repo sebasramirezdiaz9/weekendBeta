@@ -262,7 +262,7 @@ return [
         ],
         [
             'text'        => 'Pacientes',
-            'url'         => 'admin/pages',
+            'url'         => 'admin/patients',
             'icon'        => 'fas fa-fw fa-user-tie',
             'icon_color'  => 'red',
             'label_color' => 'success',
@@ -274,6 +274,14 @@ return [
             'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
+        ['header' => 'FARMACIA'],
+        [
+            'text' => 'Medicamentos',
+            'url'  => 'admin/medicine',
+            'icon' => 'fas fa-capsules',
+        ],
+
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

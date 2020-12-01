@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PatientsController;
+use App\Http\Controllers\MedicineController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +31,14 @@ Route::get('/admin/doctors', function () {
     return view('system.doctors.index');
 })->name('doctors.view');
 
+Route::get('/admin/patients', function () {
+    return view('system.patients.index');
+})->name('patients.view');
+
+Route::get('/admin/medicine', function () {
+    return view('system.medicine.index');
+})->name('medicine.view');
+
 Auth::routes();
 Auth::routes(['register' => false]);
 
@@ -35,5 +47,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/doctors', DoctorController::class);
+    Route::resource('/employees', EmployeeController::class);
+    Route::resource('/patients', PatientsController::class);
+    Route::resource('/medicine', MedicineController::class);
 });
 

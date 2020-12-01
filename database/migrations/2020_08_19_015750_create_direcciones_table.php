@@ -18,8 +18,9 @@ class CreateDireccionesTable extends Migration
             $table->string('calle',100);
             $table->string('colonia',100);
             $table->integer('num_ext');
-            $table->integer('num_int');
+            $table->integer('num_int')->nullable();
             $table->integer('codigo_postal');
+
             $table->softdeletes();
             $table->timestamps();
         });
