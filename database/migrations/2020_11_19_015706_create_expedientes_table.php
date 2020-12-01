@@ -18,11 +18,11 @@ class CreateExpedientesTable extends Migration
             $table->integer('peso');
             $table->integer('altura');
             $table->text('alergias');
-            $table->bigInteger('pacientes_id')->unsigned();
+            $table->bigInteger('paciente_id')->unsigned();
             $table->softdeletes();
             $table->timestamps();
 
-            $table->foreign('pacientes_id')->references('id')->on('pacientes')->onDelete('cascade');
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
         });
     }
 

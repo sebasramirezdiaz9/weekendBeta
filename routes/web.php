@@ -6,6 +6,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\DateController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,10 @@ Route::get('/admin/medicine', function () {
     return view('system.medicine.index');
 })->name('medicine.view');
 
+Route::get('/admin/dates', function () {
+    return view('system.dates.index');
+})->name('dates.view');
+
 Auth::routes();
 Auth::routes(['register' => false]);
 
@@ -50,5 +55,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/employees', EmployeeController::class);
     Route::resource('/patients', PatientsController::class);
     Route::resource('/medicine', MedicineController::class);
+    Route::resource('/dates', DateController::class);
+    Route::get('get/doctors/all/', [DoctorController::class, 'getAllDoctors'])->name('doctors.all');
+    Route::get('get/patients/all/', [PatientsController::class, 'getAllPatients'])->name('patients.all');
 });
 
