@@ -19,6 +19,7 @@ class CreatePacientesTable extends Migration
             $table->string('ape_mat',255);
             $table->string('ape_pat',255);
             $table->string('telefono',255);
+            $table->string('genero',255);
             $table->date('fecha_nacimiento');
             $table->bigInteger('direccion_id')->unsigned()->nullable();
             $table->bigInteger('expediente_id')->unsigned();
