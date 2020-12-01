@@ -238,13 +238,15 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin/pages',
+            'url'         => 'admin',
             'icon'        => 'fas fa-fw fa-chart-line',
+            'icon_color' => 'yellow',
             'label_color' => 'success',
         ],
         [
             'text'    => 'Usuarios',
             'icon'    => 'fas fa-fw fa-users',
+            'icon_color' => 'blue',
             'submenu' => [
                 [
                     'text' => 'Doctores',
@@ -269,7 +271,7 @@ return [
         ],
         [
             'text'        => 'Citas',
-            'url'         => 'admin/pages',
+            'url'         => 'admin/dates',
             'icon'        => 'far fa-fw fa-calendar-check',
             'icon_color'  => 'cyan',
             'label_color' => 'success',
@@ -282,55 +284,23 @@ return [
         ],
 
 
-        ['header' => 'account_settings'],
+        ['header' => 'ALMACÉN'],
         [
-            'text' => 'profile',
+            'text' => 'Compras',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Ventas',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text' => 'Inventario',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
         ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',
