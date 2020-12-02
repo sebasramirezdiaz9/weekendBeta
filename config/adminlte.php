@@ -276,6 +276,15 @@ return [
             'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Expediente',
+            'url'         => 'admin/file',
+            'icon'        => 'fas fa-file-alt',
+            'icon_color'  => 'red',
+            'label_color' => 'success',
+        ],
+
+
         ['header' => 'FARMACIA'],
         [
             'text' => 'Medicamentos',

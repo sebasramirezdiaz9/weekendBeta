@@ -8,6 +8,7 @@ use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\DateController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,10 @@ Route::get('/admin/dates', function () {
     return view('system.dates.index');
 })->name('dates.view');
 
+Route::get('/admin/file', function () {
+    return view('system.file.index');
+})->name('file.view');
+
 Auth::routes();
 Auth::routes(['register' => false]);
 
@@ -56,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/patients', PatientsController::class);
     Route::resource('/medicine', MedicineController::class);
     Route::resource('/dates', DateController::class);
+    Route::resource('/file', FileController::class);
     Route::get('get/doctors/all/', [DoctorController::class, 'getAllDoctors'])->name('doctors.all');
     Route::get('get/patients/all/', [PatientsController::class, 'getAllPatients'])->name('patients.all');
 });

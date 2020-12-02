@@ -46,7 +46,10 @@ import PatientsIndex from './components/patients/PatientsIndex';
 import MedicineCreate from './components/medicine/MedicineCreate';
 import MedicineIndex from './components/medicine/MedicineIndex'
 import DateCreate from './components/dates/DateCreate';
-import DateIndex from './components/dates/DateIndex'
+import DateIndex from './components/dates/DateIndex';
+import FileCreate from './components/file/FileCreate';
+import FileIndex from './components/file/FileIndex';
+
 
 Vue.component('v-select', vSelect);
 /**
@@ -72,6 +75,8 @@ const app = new Vue({
         MedicineCreate,
         MedicineIndex,
         DateCreate,
-        DateIndex
+        DateIndex,
+        FileCreate,
+        FileIndex
     }
 });
