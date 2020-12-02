@@ -8,10 +8,16 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes administrar los usuarios de manera correspondiente, para registrar, ver o editar a los mismos</p>
+   
     <div id="app">
-        <create-user></create-user><br>
-        <user-index></user-index>
+        <div class="card">
+            <div class="card-body">
+                <p>En este apartado puedes administrar los usuarios de manera correspondiente, para registrar, ver o editar a los mismos</p>
+                <create-user></create-user><br>
+                 <user-index></user-index>
+            </div>
+        </div>
+        
     </div>
 @stop
 

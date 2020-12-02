@@ -8,10 +8,16 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes administrar las citas de los pacientes, para registrar, ver o editar a las mismas</p>
+   
     <div id="app">
-        <date-create></date-create><br>
-        <date-index></date-index>
+        <div class="card">
+            <div class="card-body">
+                <p>En este apartado puedes administrar las citas de los pacientes, para registrar, ver o editar a las mismas</p>
+                <date-create></date-create><br>
+                 <date-index></date-index>
+            </div>
+        </div>
+        
     </div>
 @stop
 
