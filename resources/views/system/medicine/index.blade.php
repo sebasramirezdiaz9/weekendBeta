@@ -8,10 +8,16 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes registrar los medicamentos así como ver, editar y eliminar los mismos</p>
+   
     <div id="app">
-        <medicine-create></medicine-create><br>
-        <medicine-index></medicine-index>
+        <div class="card">
+            <div class="card-body">
+                <p>En este apartado puedes registrar los medicamentos así como ver, editar y eliminar los mismos</p>
+                <medicine-create></medicine-create><br>
+                <medicine-index></medicine-index>
+            </div>
+        </div>
+
         
     </div>
 @stop

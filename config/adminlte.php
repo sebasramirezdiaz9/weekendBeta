@@ -308,8 +308,8 @@ return [
         ],
         [
             'text' => 'Inventario',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'url'  => 'admin/inventory',
+            'icon' => 'fas fa-prescription-bottle',
         ],
         [
             'text' => 'Proveedores',
