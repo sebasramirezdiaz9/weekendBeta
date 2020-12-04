@@ -50,6 +50,8 @@ import DateIndex from './components/dates/DateIndex';
 import FileCreate from './components/file/FileCreate';
 import FileIndex from './components/file/FileIndex';
 
+import ProviderCreate from './components/provider/ProviderCreate';
+import ProviderIndex from './components/provider/ProviderIndex';
 
 Vue.component('v-select', vSelect);
 /**
@@ -77,6 +79,9 @@ const app = new Vue({
         DateCreate,
         DateIndex,
         FileCreate,
-        FileIndex
+        FileIndex,
+        ProviderCreate,
+        ProviderIndex
+
     }
 });

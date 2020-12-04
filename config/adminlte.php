@@ -292,12 +292,14 @@ return [
             'icon' => 'fas fa-capsules',
         ],
 
+       
+
 
         ['header' => 'ALMACÉN'],
         [
             'text' => 'Compras',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'admin/shopping',
+            'icon' => 'fas fa-shopping-cart',
         ],
         [
             'text' => 'Ventas',
@@ -308,6 +310,11 @@ return [
             'text' => 'Inventario',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Proveedores',
+            'url'  => 'admin/provider',
+            'icon' => 'fas fa-shipping-fast',
         ],
 
         ['header' => 'labels'],
