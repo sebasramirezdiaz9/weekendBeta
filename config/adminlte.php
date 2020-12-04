@@ -276,6 +276,7 @@ return [
             'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
+
         ['header' => 'FARMACIA'],
         [
             'text' => 'Medicamentos',
@@ -283,12 +284,14 @@ return [
             'icon' => 'fas fa-capsules',
         ],
 
+       
+
 
         ['header' => 'ALMACÉN'],
         [
             'text' => 'Compras',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'url'  => 'admin/shopping',
+            'icon' => 'fas fa-shopping-cart',
         ],
         [
             'text' => 'Ventas',
@@ -299,6 +302,11 @@ return [
             'text' => 'Inventario',
             'url'  => 'admin/inventory',
             'icon' => 'fas fa-prescription-bottle',
+        ],
+        [
+            'text' => 'Proveedores',
+            'url'  => 'admin/provider',
+            'icon' => 'fas fa-shipping-fast',
         ],
 
         ['header' => 'labels'],

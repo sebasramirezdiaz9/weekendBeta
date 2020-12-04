@@ -48,6 +48,8 @@ import MedicineIndex from './components/medicine/MedicineIndex'
 import DateCreate from './components/dates/DateCreate';
 import DateIndex from './components/dates/DateIndex';
 import InventoryIndex from './components/inventory/InventoryIndex'
+import ProviderCreate from './components/provider/ProviderCreate';
+import ProviderIndex from './components/provider/ProviderIndex';
 
 Vue.component('v-select', vSelect);
 /**
@@ -74,6 +76,9 @@ const app = new Vue({
         MedicineIndex,
         DateCreate,
         DateIndex,
-        InventoryIndex
+        InventoryIndex,
+        ProviderCreate,
+        ProviderIndex
+
     }
 });
