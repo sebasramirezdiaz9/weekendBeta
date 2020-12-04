@@ -8,10 +8,16 @@
 @stop
 
 @section('content')
-    <p>En este apartado puedes administrar los empleados de manera correspondiente, para registrar, ver o editar a los mismos</p>
+   
     <div id="app">
-        <employee-create></employee-create><br>
-        <employee-index></employee-index>
+        <div class="card">
+            <div class="card-body">
+                <p>En este apartado puedes administrar los empleados de manera correspondiente, para registrar, ver o editar a los mismos</p>
+                <employee-create></employee-create><br>
+                <employee-index></employee-index>
+            </div>
+        </div>
+    
     </div>
 @stop
 
