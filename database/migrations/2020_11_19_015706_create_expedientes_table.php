@@ -15,9 +15,9 @@ class CreateExpedientesTable extends Migration
     {
         Schema::create('expedientes', function (Blueprint $table) {
             $table->id();
-            $table->integer('peso');
-            $table->integer('altura');
-            $table->text('alergias');
+            $table->double('peso');
+            $table->double('altura');
+            $table->string('alergias',500);
             $table->bigInteger('paciente_id')->unsigned();
             $table->softdeletes();
             $table->timestamps();

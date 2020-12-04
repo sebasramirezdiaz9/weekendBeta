@@ -47,7 +47,13 @@ import MedicineCreate from './components/medicine/MedicineCreate';
 import MedicineIndex from './components/medicine/MedicineIndex'
 import DateCreate from './components/dates/DateCreate';
 import DateIndex from './components/dates/DateIndex';
+<<<<<<< HEAD
+import FileCreate from './components/file/FileCreate';
+import FileIndex from './components/file/FileIndex';
+
+=======
 import InventoryIndex from './components/inventory/InventoryIndex'
+>>>>>>> cf48b18f92912fcedb56d0248de4db070e536b81
 import ProviderCreate from './components/provider/ProviderCreate';
 import ProviderIndex from './components/provider/ProviderIndex';
 
@@ -76,6 +82,8 @@ const app = new Vue({
         MedicineIndex,
         DateCreate,
         DateIndex,
+        FileCreate,
+        FileIndex,
         InventoryIndex,
         ProviderCreate,
         ProviderIndex

@@ -11,6 +11,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProviderController;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +48,9 @@ Route::get('/admin/dates', function () {
     return view('system.dates.index');
 })->name('dates.view');
 
+Route::get('/admin/file', function () {
+    return view('system.file.index');
+})->name('file.view');
 Route::get('/admin/inventory', function () {
     return view('system.inventory.index');
 })->name('dates.view');
@@ -68,6 +72,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/patients', PatientsController::class);
     Route::resource('/medicine', MedicineController::class);
     Route::resource('/dates', DateController::class);
+    Route::resource('/file', FileController::class);
     Route::resource('/inventory', InventoryController::class);
     Route::resource('/provider', ProviderController::class);
     Route::get('get/doctors/all/', [DoctorController::class, 'getAllDoctors'])->name('doctors.all');
