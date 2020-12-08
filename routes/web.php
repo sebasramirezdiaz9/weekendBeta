@@ -8,7 +8,7 @@ use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\DateController;
 use App\Http\Controllers\ProviderController;
-
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +50,10 @@ Route::get('/admin/provider', function () {
     return view('system.provider.index');
 })->name('provider.view');
 
+Route::get('/admin/prescriptions', function () {
+    return view('system.prescriptions.index');
+})->name('prescriptions.view');
+
 
 
 Auth::routes();
@@ -65,7 +69,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/medicine', MedicineController::class);
     Route::resource('/dates', DateController::class);
     Route::resource('/provider', ProviderController::class);
+    Route::resource('/prescriptions', PrescriptionController::class);
     Route::get('get/doctors/all/', [DoctorController::class, 'getAllDoctors'])->name('doctors.all');
     Route::get('get/patients/all/', [PatientsController::class, 'getAllPatients'])->name('patients.all');
+    Route::get('get/medicines/all/', [MedicineController::class, 'getAllMedicines'])->name('medicines.all');
+    Route::get('get/prescription/{id}/pdf', [PrescriptionController::class, 'downloadPdf'])->name('prescription.pdf');
 });
 
