@@ -291,11 +291,6 @@ return [
             'url'  => 'admin/medicine',
             'icon' => 'fas fa-capsules',
         ],
-
-       
-
-
-        ['header' => 'ALMACÉN'],
         [
             'text' => 'Compras',
             'url'  => 'admin/shopping',
@@ -304,8 +299,12 @@ return [
         [
             'text' => 'Ventas',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-dollar-sign',
         ],
+       
+
+
+        ['header' => 'ALMACÉN'],
         [
             'text' => 'Inventario',
             'url'  => 'admin/inventory',
@@ -317,20 +316,23 @@ return [
             'icon' => 'fas fa-shipping-fast',
         ],
 
-        ['header' => 'labels'],
+        ['header' => 'HERRAMIENTAS'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
+            'text'       => ' Recetas Médicas',
+            'icon'       => 'fas fa-plus-square',
             'icon_color' => 'cyan',
+            'url'        => '/admin/prescriptions',
+        ],
+        [
+            'text'       => ' Reportes',
+            'icon_color' => 'yellow',
+            'icon'       => 'fas fa-file-contract',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'Perfil',
+            'icon_color' => 'red',
+            'icon'       => 'fas fa-user',
             'url'        => '#',
         ],
     ],

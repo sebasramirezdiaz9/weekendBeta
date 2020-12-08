@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Medicine;
 use App\Http\Requests\MedicineRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MedicineController extends Controller
 {
@@ -95,5 +96,11 @@ class MedicineController extends Controller
         return $medicine;
     
     }
+
+    public function getAllMedicines()
+    {
+       $medicines = DB::select('select * from medicamento');
+        return  collect($medicines);
+    }   
 
 }
