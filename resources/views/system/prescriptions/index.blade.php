@@ -4,20 +4,18 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @routes
 @section('content_header')
-    <h1>Empleados</h1>
+    <h1>Recetas Medicas</h1>
 @stop
 
 @section('content')
-   
+    <p>En este apartado puedes crear, editar e imprimir recetas medicas</p>
     <div id="app">
         <div class="card">
             <div class="card-body">
-                <p>En este apartado puedes administrar los empleados de manera correspondiente, para registrar, ver o editar a los mismos</p>
-                <employee-create></employee-create><br>
-                <employee-index></employee-index>
+                <prescription-create></prescription-create>
+                <prescription-index></prescription-index>
             </div>
         </div>
-    
     </div>
 @stop
 

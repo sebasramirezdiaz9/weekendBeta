@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Medicine;
-use App\Http\Requests\MedicineRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class MedicineController extends Controller
+use Illuminate\Http\Request;
+use App\Models\File;
+use App\Http\Requests\FileRequest;
+
+class FileController extends Controller
 {
     //
      /**
@@ -20,7 +20,7 @@ class MedicineController extends Controller
         $ascending =request()->get('ascending',1);
         $limit = request()->get('limit', false);
         $page = request()->get('page', false);
-        $data = Medicine::all();
+        $data = File::with('patient')->get();
         if ($limit&&$query)
             foreach (json_decode($query, true) as $column => $value)
                 if ($value !== "") {
@@ -30,7 +30,7 @@ class MedicineController extends Controller
                     });
 
                 }
-       
+
         $count = $data->count();
         $data = $data->slice(($page - 1) * $limit)->take($limit)->values();
         return compact('data', 'count');
@@ -40,44 +40,42 @@ class MedicineController extends Controller
 
       /**
      * 
-     * @return medicine
+     * @return file
      */
     public function show($id)
     {
-        return Medicine::findOrfail($id);
+        return File::findOrfail($id)->append('patient_name');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param MedicineRequest $request
+     * @param FileRequest $request
      * @return 
      */
-    public function store(MedicineRequest $request)
+    public function store(FileRequest $request)
     {
-        $medicine = new Medicine();
-        $medicine->fill($request->all());
-        $medicine->save();
+        $file = new File();
+        $file->fill($request->all());
+        $file->save();
 
-        return $medicine;
+        return $file;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param MedicineRequest $request
+     * @param FileRequest $request
      * @param int $id
      * @return array
      */
-    public function update(MedicineRequest $request, $id)
+    public function update(FileRequest $request, $id)
     {
-        $medicine = Medicine::findOrfail($id);
-        $medicine->fill($request->all());
-        $medicine->save();
+        $file= File::findOrfail($id);
+        $file->fill($request->all());
+        $file->save();
     
-       
- 
-        return $medicine;
+        return $file;
     }
 
 
@@ -86,21 +84,14 @@ class MedicineController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return user
+     * @return date
      */
     public function destroy($id)
     {
-        $medicine = Medicine::findOrfail($id);
-        $medicine->delete();
-
-        return $medicine;
+        $file = File::findOrfail($id);
+        $file->delete();
+        
+        return $file;
     
     }
-
-    public function getAllMedicines()
-    {
-       $medicines = DB::select('select * from medicamento');
-        return  collect($medicines);
-    }   
-
 }

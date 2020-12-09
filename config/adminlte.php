@@ -276,6 +276,14 @@ return [
             'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Expediente',
+            'url'         => 'admin/file',
+            'icon'        => 'fas fa-file-alt',
+            'icon_color'  => 'red',
+            'label_color' => 'success',
+        ],
+
 
         ['header' => 'FARMACIA'],
         [
@@ -283,11 +291,6 @@ return [
             'url'  => 'admin/medicine',
             'icon' => 'fas fa-capsules',
         ],
-
-       
-
-
-        ['header' => 'ALMACÉN'],
         [
             'text' => 'Compras',
             'url'  => 'admin/shopping',
@@ -296,12 +299,16 @@ return [
         [
             'text' => 'Ventas',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-dollar-sign',
         ],
+       
+
+
+        ['header' => 'ALMACÉN'],
         [
             'text' => 'Inventario',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'url'  => 'admin/inventory',
+            'icon' => 'fas fa-prescription-bottle',
         ],
         [
             'text' => 'Proveedores',
@@ -309,20 +316,23 @@ return [
             'icon' => 'fas fa-shipping-fast',
         ],
 
-        ['header' => 'labels'],
+        ['header' => 'HERRAMIENTAS'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
+            'text'       => ' Recetas Médicas',
+            'icon'       => 'fas fa-plus-square',
             'icon_color' => 'cyan',
+            'url'        => '/admin/prescriptions',
+        ],
+        [
+            'text'       => ' Reportes',
+            'icon_color' => 'yellow',
+            'icon'       => 'fas fa-file-contract',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'Perfil',
+            'icon_color' => 'red',
+            'icon'       => 'fas fa-user',
             'url'        => '#',
         ],
     ],
