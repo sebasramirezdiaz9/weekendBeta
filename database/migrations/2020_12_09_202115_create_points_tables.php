@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTiposHistoriaClinicaTable extends Migration
+class CreatePointsTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateTiposHistoriaClinicaTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_historia_clinica', function (Blueprint $table) {
+        Schema::create('points', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->softdeletes();
+            $table->string('lat', 50);
+            $table->string('lng', 50);
+            $table->bigInteger('zone_id')->unsigned();
+            $table->foreign('zone_id')->references('id')->on('zones');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateTiposHistoriaClinicaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_historia_clinica');
+        Schema::dropIfExists('points_tables');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInventariosTable extends Migration
+class CreatePlacesTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateInventariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventarios', function (Blueprint $table) {
+        Schema::create('places', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('medicamento_id')->unsigned();
-            $table->integer('cantidad');
-            $table->softdeletes();
-           
+            $table->string('name',255);
+            $table->string('lat', 50);
+            $table->string('lng', 50);
+            $table->softDeletes();
             $table->timestamps();
-            $table->foreign('medicamento_id')->references('id')->on('medicamento');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateInventariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventarios');
+        Schema::dropIfExists('places_tables');
     }
 }

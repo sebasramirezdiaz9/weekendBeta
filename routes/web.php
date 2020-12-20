@@ -62,6 +62,11 @@ Route::get('/admin/prescriptions', function () {
     return view('system.prescriptions.index');
 })->name('prescriptions.view');
 
+Route::get('/admin/places', function () {
+    return view('system.places.index');
+})->name('places.view');
+
+
 
 
 Auth::routes();

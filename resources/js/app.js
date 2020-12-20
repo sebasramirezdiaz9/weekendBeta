@@ -8,6 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 Vue.prototype.route = window.route;
+import * as VueGoogleMaps from "vue2-google-maps";
 import alvue from '@myshell/alvue'
 import { ServerTable } from 'vue-tables-2';
 import VModal from 'vue-js-modal';
@@ -56,6 +57,18 @@ import ProviderIndex from './components/provider/ProviderIndex';
 import PrescriptionCreate from './components/prescriptions/PrescriptionCreate';
 import PrescriptionIndex from './components/prescriptions/PrescriptionIndex';
 
+import ShowPlaces from './components/places/ShowPlaces';
+
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: process.env.MIX_GOOGLE_API_KEY,
+        libraries: 'places',
+    },
+    installComponents: true
+
+
+}),
+
 Vue.component('v-select', vSelect);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -88,5 +101,6 @@ const app = new Vue({
         ProviderIndex,
         PrescriptionCreate,
         PrescriptionIndex,
+        ShowPlaces
     }
 });
