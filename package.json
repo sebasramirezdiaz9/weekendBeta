@@ -25,10 +25,14 @@
     },
     "dependencies": {
         "@myshell/alvue": "^0.3.4",
+        "apexcharts": "^3.23.0",
         "sweetalert2": "^10.10.4",
+        "vue-apexcharts": "^1.6.0",
         "vue-flatpickr-component": "^8.1.6",
         "vue-js-modal": "^2.0.0-rc.6",
         "vue-select": "^3.10.8",
-        "vue-tables-2": "^2.1.50"
+        "vue-star-rating": "^1.7.0",
+        "vue-tables-2": "^2.1.50",
+        "vue2-google-maps": "^0.10.7"
     }
 }

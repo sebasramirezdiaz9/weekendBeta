@@ -1,12 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Places')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @routes
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Lugares Favoritos</h1>
 @stop
-
 
 @section('content')
    
@@ -16,24 +15,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-warning" role="alert">
-                        Estadisticas de los lugares visitados
+                        Hola Usuario aqui están los lugares que has marcado como favoritos
                     </div>
                 </div>
             </div>
-                <places-charts></places-charts>
+                <show-favorite-places></show-favorite-places>
             </div>
         </div>
-        <div class="card mt-5">
-            <div class="card-body">
-                <customers-charts></customers-charts>
-            </div>
-        </div>
+        
     </div>
-@stop
-
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')

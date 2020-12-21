@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'University-Hospital|',
+    'title_prefix' => 'Weekend|',
     'title_postfix' => '',
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Clinica</b>Bienestar',
+    'logo' => '<b style="color:orange">Weekend</b>',
     'logo_img' => 'vendor/adminlte/dist/img/icono.png',
     'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'University-Hospital',
+    'logo_img_alt' => 'Weekend',
 
     /*
     |--------------------------------------------------------------------------
@@ -126,7 +126,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-light-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -168,7 +168,7 @@ return [
 
     'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
-    'right_sidebar_theme' => 'dark',
+    'right_sidebar_theme' => 'light',
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
@@ -237,103 +237,48 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Instrucciones',
+            'url'         => '/admin/instructions',
+            'icon'        => 'fas fa-fw fa-tasks',
+            'icon_color' => 'green',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Estadisticas',
             'url'         => 'admin',
             'icon'        => 'fas fa-fw fa-chart-line',
             'icon_color' => 'yellow',
             'label_color' => 'success',
         ],
         [
-            'text'    => 'Usuarios',
-            'icon'    => 'fas fa-fw fa-users',
-            'icon_color' => 'blue',
-            'submenu' => [
-                [
-                    'text' => 'Doctores',
-                    'icon'        => 'fas fa-fw fa-user-md',
-                    'icon_color' => 'white',
-                    'url'  => 'admin/doctors',
-                ],
-                [
-                    'text' => 'Empleados',
-                    'icon'        => 'far fa-fw fa-user',
-                    'icon_color' => 'green',
-                    'url'  => 'admin/employees',
-                ],
-            ],
-        ],
-        [
-            'text'        => 'Pacientes',
-            'url'         => 'admin/patients',
-            'icon'        => 'fas fa-fw fa-user-tie',
-            'icon_color'  => 'red',
+            'text'        => 'Lugares',
+            'url'         => 'admin/places',
+            'icon'        => 'fas fa-fw fa-map-marker-alt',
+            'icon_color'  => 'orange',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Citas',
-            'url'         => 'admin/dates',
-            'icon'        => 'far fa-fw fa-calendar-check',
-            'icon_color'  => 'cyan',
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Expediente',
-            'url'         => 'admin/file',
-            'icon'        => 'fas fa-file-alt',
+            'text'        => 'Sitios Favoritos',
+            'url'         => 'admin/favorite-places',
+            'icon'        => 'fas fa-heart',
             'icon_color'  => 'red',
             'label_color' => 'success',
         ],
 
-
-        ['header' => 'FARMACIA'],
+        ['header' => 'Social'],
         [
-            'text' => 'Medicamentos',
-            'url'  => 'admin/medicine',
-            'icon' => 'fas fa-capsules',
-        ],
-        [
-            'text' => 'Compras',
-            'url'  => 'admin/shopping',
-            'icon' => 'fas fa-shopping-cart',
-        ],
-        [
-            'text' => 'Ventas',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-dollar-sign',
-        ],
-       
-
-
-        ['header' => 'ALMACÉN'],
-        [
-            'text' => 'Inventario',
-            'url'  => 'admin/inventory',
-            'icon' => 'fas fa-prescription-bottle',
-        ],
-        [
-            'text' => 'Proveedores',
-            'url'  => 'admin/provider',
-            'icon' => 'fas fa-shipping-fast',
+            'text'       => 'Lugares Populares',
+            'icon_color' => 'red',
+            'icon'       => 'fas fa-fire',
+            'url'        => 'admin/popular_favorites',
         ],
 
-        ['header' => 'HERRAMIENTAS'],
-        [
-            'text'       => ' Recetas Médicas',
-            'icon'       => 'fas fa-plus-square',
-            'icon_color' => 'cyan',
-            'url'        => '/admin/prescriptions',
-        ],
-        [
-            'text'       => ' Reportes',
-            'icon_color' => 'yellow',
-            'icon'       => 'fas fa-file-contract',
-            'url'        => '#',
-        ],
+        ['header' => 'Personal'],
         [
             'text'       => 'Perfil',
             'icon_color' => 'red',
             'icon'       => 'fas fa-user',
-            'url'        => '#',
+            'url'        => 'admin/profile',
         ],
     ],
 

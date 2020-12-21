@@ -19,8 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body style="background-image:url({{asset ('storage/doctores.jpg')}});
-background-repeat:no-repeat; background-size:cover;>
+<body style="background-image:url({{asset ('storage/weekend.jpg')}});
+background-repeat:no-repeat; background-size:cover;">
     <div id="app">
         <main >
             @yield('content')

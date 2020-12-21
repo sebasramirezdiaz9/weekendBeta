@@ -39,13 +39,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function doctor()
+    public function favorite_places()
     {
-        return $this->hasOne(Doctor::class);
+        return $this->hasMany(FavoritePlace::class);
     }
 
-    public function employee()
+    public function getFavoritesPlacesAttribute()
     {
-        return $this->hasOne(Employee::class);
+        return $this->favorite_places->count();
     }
 }

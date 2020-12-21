@@ -30,4 +30,20 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google_maps' => [
+        'key' => env('MIX_MAPS_KEY')
+    ],
+
+    'google' => [
+        'client_id' => '1096337952521-jle7pv3mvkc5vjoabur3ipuvsohjts62.apps.googleusercontent.com',
+        'client_secret' => 'dF1kESrF5rTXXdoiP_Xj0A_C',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
+    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT_URL'),
+    ],
+
 ];

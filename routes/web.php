@@ -2,16 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\PatientsController;
-use App\Http\Controllers\MedicineController;
-use App\Http\Controllers\DateController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\ProviderController;
-use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\Auth\SocialLoginController;
+use App\Http\Controllers\PlaceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,40 +20,26 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/admin/places', function () {
+    return view('system.places.index');
+})->name('places.view');
 
-Route::get('/admin/employees', function () {
-    return view('system.users.index');
-})->name('users.view');
+Route::get('/admin/favorite-places', function () {
+    return view('system.favorite_places.index');
+})->name('favorite-places.view');
 
-Route::get('/admin/doctors', function () {
-    return view('system.doctors.index');
-})->name('doctors.view');
+Route::get('/admin/popular_favorites', function () {
+    return view('system.popular_favorites.index');
+})->name('popular_favorites.view');
 
-Route::get('/admin/patients', function () {
-    return view('system.patients.index');
-})->name('patients.view');
+Route::get('/admin/profile', function () {
+    return view('system.profile.index');
+})->name('profile.view');
 
-Route::get('/admin/medicine', function () {
-    return view('system.medicine.index');
-})->name('medicine.view');
 
-Route::get('/admin/dates', function () {
-    return view('system.dates.index');
-})->name('dates.view');
-
-Route::get('/admin/file', function () {
-    return view('system.file.index');
-})->name('file.view');
-Route::get('/admin/inventory', function () {
-    return view('system.inventory.index');
-})->name('dates.view');
-Route::get('/admin/provider', function () {
-    return view('system.provider.index');
-})->name('provider.view');
-
-Route::get('/admin/prescriptions', function () {
-    return view('system.prescriptions.index');
-})->name('prescriptions.view');
+Route::get('/admin/instructions', function () {
+    return view('system.instrucctions.index');
+})->name('instructions.view');
 
 
 
@@ -68,21 +47,15 @@ Auth::routes();
 Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('login/{provider}', [App\Http\Controllers\Auth\SocialiteLoginController::class, 'redirectToProvider'])->name('social.auth');
+Route::get('auth/{provider}/callback', [App\Http\Controllers\Auth\SocialiteLoginController::class, 'handleProviderCallback']);
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('/users', UserController::class);
-    Route::resource('/doctors', DoctorController::class);
-    Route::resource('/employees', EmployeeController::class);
-    Route::resource('/patients', PatientsController::class);
-    Route::resource('/medicine', MedicineController::class);
-    Route::resource('/dates', DateController::class);
-    Route::resource('/file', FileController::class);
-    Route::resource('/inventory', InventoryController::class);
-    Route::resource('/provider', ProviderController::class);
-    Route::resource('/prescriptions', PrescriptionController::class);
-    Route::get('get/doctors/all/', [DoctorController::class, 'getAllDoctors'])->name('doctors.all');
-    Route::get('get/patients/all/', [PatientsController::class, 'getAllPatients'])->name('patients.all');
-    Route::get('get/medicines/all/', [MedicineController::class, 'getAllMedicines'])->name('medicines.all');
-    Route::get('get/prescription/{id}/pdf', [PrescriptionController::class, 'downloadPdf'])->name('prescription.pdf');
+    Route::get('get/places', [PlaceController::class, 'getPlaces'])->name('get.places');
+    Route::post('places/favorite_places', [PlaceController::class, 'addFavorite'])->name('add.favorite_places');
+    Route::get('get/favorite/places', [PlaceController::class, 'getFavoritePlaces'])->name('get.favorite.places');
+    Route::get('get/popular', [PlaceController::class, 'getPopularPlaces'])->name('get.popular.places');
+    Route::get('get/profile/data', [UserController::class, 'getData'])->name('get.data');
 });
 

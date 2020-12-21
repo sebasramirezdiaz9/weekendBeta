@@ -4,18 +4,15 @@
 <div class="container-fluid" >
     
     <div class="row">
-        <div  class="col-md-7">
-
-        </div>
         
-        <div class="col-md-5 py-5">
+        <div class="col-md-6 m-auto py-5">
             <div class="card "  >
             <div class="form-group row">
                 <div class="col-md-6 offset-md-3">
                     <div class="d-flex justify-content-center mt-4">
                         <img width="90px"  src="{{asset ('storage/login.png')}}" alt="">
                     </div>
-                    <div style="font-size:25px" class="p-2 mt-2 font-weight-bold fscard-tile text-center">{{ __('Bienvenido a Cinica Bienestar') }}</div>
+                    <div style="font-size:25px" class="p-2 mt-2 font-weight-bold fscard-tile text-center">{{ __('Weekend For You!') }}</div>
 
                 </div>
             </div>
@@ -72,6 +69,21 @@
                                 {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-12 text-center learts-mb-50" style="margin-top: 50px">
+                            <p class="fw-400">Registro por redes sociales</p>
+                            <div class="kt-login__options center" >
+                                <a href="{{ route('social.auth', 'facebook') }}" class="btn border-dark btn-primary btn-hover-black">
+                                <i class="fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                                <a href="{{ route('social.auth', 'google') }}" class="btn border-dark btn-danger btn-hover-black">
+                                    <i class="fas fa-google"></i>
+                                    Google
+                                </a>
+                            </div>
+                        </div>
                         </div>
                     </form>
                 </div>
