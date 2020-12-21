@@ -12,7 +12,13 @@
     <div id="app">
         <div class="card">
             <div class="card-body">
-                <p>Hola Usuario aqui podras elegir por categoria los lugares que desees visitar</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning" role="alert">
+                        Hola Usuario aqui podras elegir por categoria los lugares que desees visitar
+                    </div>
+                </div>
+            </div>
                 <show-places></show-places>
             </div>
         </div>

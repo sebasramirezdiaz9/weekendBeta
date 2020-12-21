@@ -18,6 +18,9 @@ import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
+import StarRating from 'vue-star-rating';
+import VueApexCharts from 'vue-apexcharts'
+
 
 // CommonJS
 
@@ -34,30 +37,24 @@ import 'vue-select/dist/vue-select.css';
 Vue.use(ServerTable);
 Vue.use(VModal);
 Vue.use(alvue);
-
-
+Vue.use(VueApexCharts);
+ 
+Vue.component('apexchart', VueApexCharts)
 Vue.component('flat-pickr',flatPickr);   
-
+Vue.component('StarRating', StarRating);
 import UserIndex from './components/users/UserIndex';
 import CreateUser from './components/users/UserCreate';
-import EmployeeIndex from './components/employees/EmployeeIndex';
-import EmployeeCreate from './components/employees/EmployeeCreate';
-import PatientsCreate from './components/patients/PatientsCreate';
-import PatientsIndex from './components/patients/PatientsIndex';
-import MedicineCreate from './components/medicine/MedicineCreate';
-import MedicineIndex from './components/medicine/MedicineIndex'
-import DateCreate from './components/dates/DateCreate';
-import DateIndex from './components/dates/DateIndex';
-import FileCreate from './components/file/FileCreate';
-import FileIndex from './components/file/FileIndex';
 
-import InventoryIndex from './components/inventory/InventoryIndex'
-import ProviderCreate from './components/provider/ProviderCreate';
-import ProviderIndex from './components/provider/ProviderIndex';
-import PrescriptionCreate from './components/prescriptions/PrescriptionCreate';
-import PrescriptionIndex from './components/prescriptions/PrescriptionIndex';
+
 
 import ShowPlaces from './components/places/ShowPlaces';
+import ShowFavoritePlaces from './components/favorite_places/ShowFavoritePlaces';
+import ShowPlacesPopulars from './components/places_populars/ShowPlacesPopulars';
+
+import PlacesCharts from './components/dashboard/PlacesCharts';
+import CustomersCharts from './components/dashboard/CustomersCharts';
+
+import ProfileIndex from './components/profile/ProfileIndex';
 
 Vue.use(VueGoogleMaps, {
     load: {
@@ -86,21 +83,11 @@ const app = new Vue({
     components:{
         UserIndex,
         CreateUser,
-        EmployeeIndex,
-        EmployeeCreate,
-        PatientsCreate,
-        PatientsIndex,
-        MedicineCreate,
-        MedicineIndex,
-        DateCreate,
-        DateIndex,
-        FileCreate,
-        FileIndex,
-        InventoryIndex,
-        ProviderCreate,
-        ProviderIndex,
-        PrescriptionCreate,
-        PrescriptionIndex,
-        ShowPlaces
+        ShowPlaces,
+        ShowFavoritePlaces,
+        ShowPlacesPopulars,
+        PlacesCharts,
+        CustomersCharts,
+        ProfileIndex
     }
 });

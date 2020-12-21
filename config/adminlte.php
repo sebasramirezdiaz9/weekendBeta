@@ -237,23 +237,17 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Instrucciones',
+            'url'         => '/admin/instructions',
+            'icon'        => 'fas fa-fw fa-tasks',
+            'icon_color' => 'green',
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Estadisticas',
             'url'         => 'admin',
             'icon'        => 'fas fa-fw fa-chart-line',
             'icon_color' => 'yellow',
-            'label_color' => 'success',
-        ],
-        [
-            'text' => 'Usuarios',
-            'icon'        => 'fas fa-fw fa-user-md',
-            'icon_color' => 'red',
-            'url'  => 'admin/doctors',
-        ],
-        [
-            'text'        => 'Zonas',
-            'url'         => 'admin/patients',
-            'icon'        => 'fas fa-fw fa-map-marked-alt',
-            'icon_color'  => 'cyan',
             'label_color' => 'success',
         ],
         [
@@ -265,7 +259,7 @@ return [
         ],
         [
             'text'        => 'Sitios Favoritos',
-            'url'         => 'admin/file',
+            'url'         => 'admin/favorite-places',
             'icon'        => 'fas fa-heart',
             'icon_color'  => 'red',
             'label_color' => 'success',
@@ -276,7 +270,7 @@ return [
             'text'       => 'Lugares Populares',
             'icon_color' => 'red',
             'icon'       => 'fas fa-fire',
-            'url'        => '#',
+            'url'        => 'admin/popular_favorites',
         ],
 
         ['header' => 'Personal'],
@@ -284,7 +278,7 @@ return [
             'text'       => 'Perfil',
             'icon_color' => 'red',
             'icon'       => 'fas fa-user',
-            'url'        => '#',
+            'url'        => 'admin/profile',
         ],
     ],
 

@@ -95,5 +95,10 @@ class UserController extends Controller
 
         return $user;
     }
+
+    public function getData()
+    {
+        return User::findOrfail(Auth::user()->id)->append('favorites_places');
+    }
     
 }
